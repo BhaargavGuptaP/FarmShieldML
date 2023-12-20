@@ -7,8 +7,12 @@ import numpy as np
 import torch
 import pandas as pd
 
+import pickle
+
 model = CNN.CNN(39)
-model.load_state_dict(torch.load("plant_disease_model_1_latest.pt"))
+# model.load_state_dict(torch.load("plant_disease_model_1_latest.pt"))
+model.load_state_dict(torch.load("plant_disease_model_1_latest.pt", map_location=device, pickle_module=pickle))
+
 model.eval()
 
 
